@@ -1,5 +1,5 @@
 SaveAll — програма для зберігання свого коду.
-gitHub:
+gitHub: https://github.com/Romanuch4/SaveAll
 Frontend:
 
 1. React(бібліотека для швидкого рендерингу компонентів);
@@ -15,3 +15,5 @@ Backend:
 Весь Frontend розміщений в папці client. Вхідна точка ./client/src/index.js
 Шлях до Store: ./client/src/store/store.js
 В папці ./client/src/store будуть зберігатися також action-creators та reducers у відповідних папках.
+Як тільки починає виконуватись запит на сервер, показується Preloader ./client/src/preloader/preloader.js
+У файлі ./client/src/sign/sign-form.jsx при натисканні на кнопку спрацьовує подія onSubmit, яка, при позитивній відповіді з серверу робить глобальну релокацію window.location.href += '/login' . При цьому спрацьовує Route і показує компонент <Login> . Трохи про Router:
