@@ -18,10 +18,65 @@
   font-family: 'Pacifico', cursive;
 }
 
+.dashboardHeaderUserWrap {
+  position: relative;
+}
+
 .dashboardHeaderUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 32px;
   height: 32px;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.dashboardHeaderUserActive {
+  background-color: #fff;
+  color: #217346;
+}
+
+.dashboardHeaderUser:hover {
+  background-color: #fff;
+  color: #217346;
+}
+
+.dashboardUserPopup {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 20px);
+  right: 0;
+  min-height: 100px;
+  padding: 20px 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #217346;
+  transition: 0.4s;
+}
+
+.dashboardUserPopupHide {
+  opacity: 0;
+  z-index: -1;
+}
+
+.dashboardUserPopupBtn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 6px 15px;
+  border: 1px solid #217346;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #217346;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.dashboardUserPopupBtn:hover {
+  background-color: #217346;
   color: #fff;
 }
