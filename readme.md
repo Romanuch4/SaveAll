@@ -11,6 +11,8 @@ Frontend:
 
 Backend:
 
+1. https://start.spring.io/(для легкого старту, одразу імпортуємо Web & DevTools);
+
 Встановимо всі вищевказані бібліотеки.
 Весь Frontend розміщений в папці client. Вхідна точка ./client/src/index.js
 Шлях до Store: ./client/src/store/store.js

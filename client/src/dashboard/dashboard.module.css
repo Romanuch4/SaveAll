@@ -1,7 +1,4 @@
 /*color: #217346;*/
-.dashboard {
-}
-
 .dashboardHeader {
   display: flex;
   justify-content: space-between;
@@ -79,4 +76,136 @@
 .dashboardUserPopupBtn:hover {
   background-color: #217346;
   color: #fff;
+}
+
+.DashboardContent {
+  min-height: calc(100vh - 52px);
+  padding-top: 40px;
+  background-color: #faf9f8;
+}
+
+.DashboardTitle {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.875;
+  color: #252423;
+}
+
+.DashboardCreate {
+  display: flex;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.DashboardCreateItem {
+  padding: 20px 30px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.DashboardCreateItem:hover {
+  border: 1px solid #217346;
+  background-color: rgba(237, 235, 233, 0.5);
+}
+
+.DashboardCreateItemIcon {
+  position: relative;
+  width: 112px;
+  height: 82px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+}
+
+.DashboardCreateItemIcon::before,
+.DashboardCreateItemIcon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #217346;
+  transform: translate(-50%, -50%);
+}
+
+.DashboardCreateItemIcon::before {
+  width: 4px;
+  height: 50px;
+}
+
+.DashboardCreateItemIcon::after {
+  width: 50px;
+  height: 4px;
+}
+
+.DashboardCreateItemTitle {
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  color: #252423;
+  transition: 0.4s;
+}
+
+.DashboardCreateItem:hover .DashboardCreateItemTitle {
+  color: #217346;
+}
+
+.DashboardProjectsItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  margin-bottom: 30px;
+  padding: 0px 20px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.DashboardProjectsItem:hover {
+  background-color: #fff;
+  box-shadow: 0 0 4px rgb(0 0 0 / 50%);
+}
+
+.DashboardProjectsItem:first-child {
+  margin-top: 30px;
+}
+
+.DashboardItemIcon {
+  height: 30px;
+}
+
+.DashboardItemTitle {
+  margin-left: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.DashboardItemLeft {
+  display: flex;
+  align-items: center;
+}
+
+.DashboardItemDate {
+  color: #ccc;
+}
+
+.DashboardItemBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.DashboardItemBtn:hover {
+  opacity: 0.5;
+}
+
+.DashboardItemBtnImg {
+  width: 30px;
+  height: 100%;
 }
