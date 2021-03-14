@@ -1,7 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import classNames from './dashboard.module.css';
 
-export const DashboardHeader = React.memo(() => {
+export const DashboardHeader = React.memo(({ logOut }) => {
   //false - hide popup, true - show. 
   //hidePopup вешается на window и проверяет область(класс), по которой кликнули. Если это не иконка User или 
   //не само окно Popup, то hidePopup вызвет setState(false).
@@ -22,8 +24,15 @@ export const DashboardHeader = React.memo(() => {
     }
   }, []);
 
-  const logOut = () => {
-    window.location.href = 'http://localhost:3000/login';
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const dologOut = () => {
+    history.push('/login');
+    dispatch(logOut());
+  }
+
+  const keysCode = {
+    ENTER: 'Enter',
   }
 
   const showHidePopup = () => {
@@ -31,7 +40,9 @@ export const DashboardHeader = React.memo(() => {
   }
 
   const showHidePopupKey = (evt) => {
-    console.log(evt.key);
+    if (evt.key === keysCode.ENTER) {
+      showHidePopup();
+    }
   }
   return (
     <header className={classNames.dashboardHeader}>
@@ -40,7 +51,7 @@ export const DashboardHeader = React.memo(() => {
         <div className={`${classNames.dashboardHeaderUser} ${state ? classNames.dashboardHeaderUserActive : ''}`} onKeyDown={showHidePopupKey} onClick={showHidePopup} tabIndex="0">Us</div>
         <div className={`${classNames.dashboardUserPopup} ${!state ? classNames.dashboardUserPopupHide : ''}`}>
           User: LoignOfUser
-          <button className={`${classNames.dashboardUserPopupBtn}`} onClick={logOut}>
+          <button className={`${classNames.dashboardUserPopupBtn}`} onClick={dologOut}>
             Вийти
           </button>
         </div>

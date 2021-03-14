@@ -3,7 +3,27 @@ import classNames from './dashboard.module.css';
 import folderIcon from '../assets/folder-button.svg';
 import trashIcon from '../assets/trash.svg';
 
-export const DashboardContent = React.memo(() => {
+export const DashboardContent = React.memo(({ folders }) => {
+  const items = folders.map((item) => {
+    return (
+      <li key={item.id} className={classNames.DashboardProjectsItem} tabIndex="0">
+        <div className={classNames.DashboardItemLeft}>
+          <img className={classNames.DashboardItemIcon} src={folderIcon} alt="folder" />
+          <h3 className={classNames.DashboardItemTitle}>
+            {item.name}
+          </h3>
+        </div>
+
+        <div className={classNames.DashboardItemDate}>
+          {item.date}
+        </div>
+
+        <button className={classNames.DashboardItemBtn}>
+          <img className={classNames.DashboardItemBtnImg} src={trashIcon} alt="delete folder" />
+        </button>
+      </li>
+    )
+  });
   return (
     <div className={classNames.DashboardContent}>
       <div className="container">
@@ -25,22 +45,7 @@ export const DashboardContent = React.memo(() => {
           Мої проєкти
         </h2>
         <ul className={classNames.DashboardProjects}>
-          <li className={classNames.DashboardProjectsItem} tabIndex="0">
-            <div className={classNames.DashboardItemLeft}>
-              <img className={classNames.DashboardItemIcon} src={folderIcon} alt="folder" />
-              <h3 className={classNames.DashboardItemTitle}>
-                FolderName1
-              </h3>
-            </div>
-
-            <div className={classNames.DashboardItemDate}>
-              13.01.2021
-            </div>
-
-            <button className={classNames.DashboardItemBtn}>
-              <img className={classNames.DashboardItemBtnImg} src={trashIcon} alt="delete folder" />
-            </button>
-          </li>
+          {items}
         </ul>
       </div>
     </div>
