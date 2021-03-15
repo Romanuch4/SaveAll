@@ -4,14 +4,14 @@ import { DashboardHeader } from './dashboard-header';
 import { Redirect } from 'react-router-dom';
 import classNames from './dashboard.module.css';
 
-export const Dashboard = React.memo(({ isAuth, logOut, folders }) => {
+export const Dashboard = React.memo(({ isAuth, logOut, folders, deleteFolder, addFolder }) => {
   if (!isAuth) {
     return <Redirect to="/login" />
   }
   return (
     <div className={classNames.dashboard}>
       <DashboardHeader logOut={logOut} />
-      <DashboardContent folders={folders} />
+      <DashboardContent folders={folders} deleteFolder={deleteFolder} addFolder={addFolder} />
     </div>
   );
 });
