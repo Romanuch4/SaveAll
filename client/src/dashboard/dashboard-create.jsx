@@ -34,13 +34,16 @@ export const DashboardContentCreate = React.memo(({ addFolder, dispatch }) => {
             validate={values => {
               const errors = {};
               if (!values.folderName) {
-                errors.folderName = 'Required';
+                errors.folderName = `Обов'язково`;
+              } else if (values.folderName.length > 50) {
+                errors.folderName = 'не більше 50-ти символів';
               }
               return errors;
             }}
             onSubmit={(values, { setSubmitting }) => {
               dispatch(addFolder(JSON.parse(JSON.stringify(values, null, 2)).folderName));
               setEditStatus();
+              values.folderName = '';
               setSubmitting(false);
             }}
           >

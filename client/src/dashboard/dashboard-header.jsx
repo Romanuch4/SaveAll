@@ -14,6 +14,8 @@ export const DashboardHeader = React.memo(({ logOut }) => {
       const iscurrentClassPopup = currentClasses.includes(classNames.dashboardHeaderUser) ||
         currentClasses.includes(classNames.dashboardUserPopup) ||
         currentClasses.includes(classNames.dashboardUserPopupBtn);
+      //Если элемент не есть элементом данного окна, 
+      //то окно нужно скрыть(проверка по классам соответствующих элементов)
       if (!iscurrentClassPopup) {
         setState(false);
       }
