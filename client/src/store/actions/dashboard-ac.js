@@ -13,3 +13,14 @@ export const addFolder = (name) => {
     payload: name,
   };
 };
+
+export const addFiles = ({ src, fileName, folderName }) => {
+  return {
+    type: actionTypes.ADD_FILE,
+    payload: {
+      fileURL: src,
+      fileName,
+      folderName,
+    },
+  };
+};

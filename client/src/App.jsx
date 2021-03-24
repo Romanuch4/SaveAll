@@ -7,8 +7,8 @@ import { Route } from 'react-router';
 import { LogIn } from './form/login';
 import { Dashboard } from './dashboard/dashboard';
 import { logIn, logOut } from './store/actions/common-ac';
-import { deleteFolder, addFolder } from './store/actions/dashboard-ac';
-import Folder from './folder/folder';
+import { deleteFolder, addFolder, addFiles } from './store/actions/dashboard-ac';
+import { Folder } from './folder/folder';
 
 const App = React.memo(() => {
   const state = useSelector((state) => {
@@ -33,9 +33,8 @@ const App = React.memo(() => {
         </div>
       </div>} />
       <Route exact path="/dashboard" render={() => <Dashboard isAuth={state.isAuth} logOut={logOut} folders={state.folders} deleteFolder={deleteFolder} addFolder={addFolder} />} />
-      <Route exact path="/dashboard/:folderName" render={() => <Folder />} />
+      <Route exact path="/dashboard/:folderName" render={() => <Folder isAuth={state.isAuth} folders={state.folders} addFiles={addFiles} />} />
     </>
-
   );
 });
 

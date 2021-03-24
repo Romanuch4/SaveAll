@@ -1,0 +1,61 @@
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #217346;
+}
+
+.dashboardHeaderTitle {
+  font-size: 16px;
+  color: #fff;
+}
+
+.dashboardHeaderTitleSpan {
+  font-family: 'Pacifico', cursive;
+}
+
+.dashboardHeaderUserWrap {
+  position: relative;
+}
+
+.dashboardHeaderUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.dashboardHeaderUserActive {
+  background-color: #fff;
+  color: #217346;
+}
+
+.dashboardHeaderUser:hover {
+  background-color: #fff;
+  color: #217346;
+}
+
+.dashboardUserPopup {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 20px);
+  right: 0;
+  min-height: 100px;
+  padding: 20px 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #217346;
+  transition: 0.4s;
+}
+
+.dashboardUserPopupHide {
+  opacity: 0;
+  z-index: -1;
+}

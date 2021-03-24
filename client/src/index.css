@@ -35,3 +35,33 @@ li {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 6px 15px;
+  border: 1px solid #217346;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #217346;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btn:hover {
+  background-color: #217346;
+  color: #fff;
+}
+
+.content {
+  min-height: calc(100vh - 52px);
+  padding-top: 40px;
+  background-color: #faf9f8;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #252423;
+  line-height: 1.875;
+}

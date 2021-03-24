@@ -1,6 +1,6 @@
 import React from 'react';
 import { DashboardContent } from './dashboard-content';
-import { DashboardHeader } from './dashboard-header';
+import { Header } from '../header/header';
 import { Redirect } from 'react-router-dom';
 import classNames from './dashboard.module.css';
 
@@ -10,7 +10,7 @@ export const Dashboard = React.memo(({ isAuth, logOut, folders, deleteFolder, ad
   }
   return (
     <div className={classNames.dashboard}>
-      <DashboardHeader logOut={logOut} />
+      <Header logOut={logOut} />
       <DashboardContent folders={folders} deleteFolder={deleteFolder} addFolder={addFolder} />
     </div>
   );

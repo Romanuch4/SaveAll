@@ -11,7 +11,7 @@ export const DashboardContentCreate = React.memo(({ addFolder, dispatch }) => {
   return (
     <>
       <div className="container">
-        <h2 className={classNames.DashboardTitle}>
+        <h2 className="title">
           Створення
         </h2>
         <div className={classNames.DashboardCreate}>
@@ -66,7 +66,7 @@ export const DashboardContentCreate = React.memo(({ addFolder, dispatch }) => {
                   value={values.folderName}
                 />
                 {errors.folderName && touched.folderName && errors.folderName}
-                <button className={classNames.dashboardUserPopupBtn} type="submit" disabled={isSubmitting}>
+                <button className="btn" type="submit" disabled={isSubmitting}>
                   Створити
                 </button>
               </form>

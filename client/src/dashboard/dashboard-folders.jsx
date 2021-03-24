@@ -34,7 +34,7 @@ export const DashboardContentFolders = React.memo(({ folders, deleteFolder, disp
   }) : 'Поки тут пусто. Натисність «Нова тека», щоб почати роботу';
   return (
     <div className="container">
-      <h2 className={classNames.DashboardTitle}>
+      <h2 className="title">
         Мої проєкти
       </h2>
       <ul className={classNames.DashboardProjects}>
