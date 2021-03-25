@@ -40,21 +40,21 @@ export const MyForm = React.memo(({ type, confirmLogin }) => {
       {({ isSubmitting }) => (
         <Form className={classNames.form}>
           <label className={classNames.formLabel}>
-            <Field className={classNames.formInput} placeholder="example@gmail.com" type="email" name="email" />
+            <Field className={`input ${classNames.formInput}`} placeholder="example@gmail.com" type="email" name="email" />
             <div className={classNames.formInputTitle}>Введіть email</div>
-            <ErrorMessage className={classNames.formInputError} name="email" component="div" />
+            <ErrorMessage className="errorMessage" name="email" component="div" />
           </label>
           <label className={classNames.formLabel}>
-            <Field className={classNames.formInput} placeholder="password" type="password" name="password" />
+            <Field className={`input ${classNames.formInput}`} placeholder="password" type="password" name="password" />
             <div className={classNames.formInputTitle}>Введіть пароль</div>
-            <ErrorMessage className={classNames.formInputError} name="password" component="div" />
+            <ErrorMessage className="errorMessage" name="password" component="div" />
           </label>
           {type === "sign" ? <label className={classNames.formLabel}>
-            <Field className={classNames.formInput} placeholder="password" type="password" name="confirmPassword" />
+            <Field className={`input ${classNames.formInput}`} placeholder="password" type="password" name="confirmPassword" />
             <div className={classNames.formInputTitle}>Введіть пароль повторно</div>
-            <ErrorMessage className={classNames.formInputError} name="confirmPassword" component="div" />
+            <ErrorMessage className="errorMessage" name="confirmPassword" component="div" />
           </label> : ""}
-          <button className={classNames.formBtn} type="submit" disabled={isSubmitting}>
+          <button className="form-btn" type="submit" disabled={isSubmitting}>
             {type === "sign" ? "Створити акаунт" : "Увійти"}
           </button>
         </Form>

@@ -33,6 +33,7 @@
   margin: 0 10px 20px 10px;
   padding: 16.1px;
   border: 1px solid transparent;
+  text-align: center;
 }
 
 .fileTitle {
@@ -74,4 +75,35 @@
 
 .filesPlug {
   margin-left: 10px;
+}
+
+.folderForm {
+  margin-top: 40px;
+}
+
+.formGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.formLabel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel1 {
+  width: 100%;
+  order: 1;
+}
+
+.formTextarea {
+  min-height: 300px;
+  resize: none;
+}
+
+.formSpan {
+  margin-bottom: 10px;
 }

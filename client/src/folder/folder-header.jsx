@@ -1,10 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import classNames from './folder.module.css';
 
 
-export const FolderHeader = React.memo(({ folderName, addFiles }) => {
-  const dispatch = useDispatch();
+export const FolderHeader = React.memo(({ folderName, addFiles, dispatch }) => {
   const triggerInput = (evt) => {
     //input type=[file] = evt.target.nextElementSibling
     evt.target.nextElementSibling.click();

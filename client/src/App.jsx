@@ -33,7 +33,7 @@ const App = React.memo(() => {
         </div>
       </div>} />
       <Route exact path="/dashboard" render={() => <Dashboard isAuth={state.isAuth} logOut={logOut} folders={state.folders} deleteFolder={deleteFolder} addFolder={addFolder} />} />
-      <Route exact path="/dashboard/:folderName" render={() => <Folder isAuth={state.isAuth} folders={state.folders} addFiles={addFiles} />} />
+      <Route exact path="/dashboard/:folderName" render={() => <Folder isAuth={state.isAuth} folders={state.folders} addFiles={addFiles} logOut={logOut} />} />
     </>
   );
 });
