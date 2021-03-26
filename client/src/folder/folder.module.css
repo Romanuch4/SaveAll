@@ -107,3 +107,13 @@
 .formSpan {
   margin-bottom: 10px;
 }
+
+@media (max-width: 600px) {
+  .formLabel {
+    width: 100%;
+  }
+
+  .formLabel1 {
+    order: 0;
+  }
+}

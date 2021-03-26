@@ -201,3 +201,24 @@
   width: 18px;
   height: 2.5px;
 }
+
+@media (max-width: 700px) {
+  .DashboardItemTitle {
+    width: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .DashboardItemIcon,
+  .DashboardItemBtn {
+    height: 20px;
+  }
+
+  .DashboardItemDate {
+    font-size: 12px;
+  }
+
+  .DashboardCreate {
+    justify-content: center;
+  }
+}

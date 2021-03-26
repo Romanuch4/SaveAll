@@ -1,12 +1,5 @@
 const initialState = {
-  folders: [
-    {
-      id: new Date().getTime(),
-      name: 'folder 1',
-      date: '13.01.2021',
-      files: [],
-    },
-  ],
+  folders: [],
 };
 
 export const actionTypes = {
