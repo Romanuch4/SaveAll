@@ -28,33 +28,11 @@
 }
 
 .formP {
-  margin-bottom: 24px;
+  margin-bottom: auto;
+  font-size: 18px;
+  text-align: center;
 }
 
-.form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.formLabel {
-  position: relative;
-  width: 100%;
-}
-
-.formInputTitle {
-  position: absolute;
-  top: -8px;
-  left: 10px;
-  padding: 0 5px;
-  background-color: #fff;
-  font-size: 13px;
-  color: rgb(131, 129, 129);
-  transition: 0.4s;
-}
-
-.formInput:focus ~ .formInputTitle {
-  color: #1a73e8;
+.formBtn {
+  letter-spacing: 0.5px;
 }

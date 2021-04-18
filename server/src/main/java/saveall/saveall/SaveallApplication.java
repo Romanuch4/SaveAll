@@ -2,12 +2,13 @@ package saveall.saveall;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan
 public class SaveallApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SaveallApplication.class, args);
 	}
-
 }

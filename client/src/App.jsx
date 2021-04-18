@@ -4,7 +4,6 @@ import { SignIn } from './form/sign';
 import { Preloader } from './preloader/preloader';
 import { useSelector } from 'react-redux';
 import { Route } from 'react-router';
-import { LogIn } from './form/login';
 import { Dashboard } from './dashboard/dashboard';
 import { logIn, logOut } from './store/actions/common-ac';
 import { deleteFolder, addFolder, addFiles } from './store/actions/dashboard-ac';
@@ -24,16 +23,15 @@ const App = React.memo(() => {
       {state.isLoading ? <Preloader /> : ''}
       <Route exact path="/" render={() => <div className={classNames.appSignLog}>
         <div className={classNames.signLogContainer}>
-          <SignIn />
-        </div>
-      </div>} />
-      <Route exact path="/login" render={() => <div className={classNames.appSignLog}>
-        <div className={classNames.signLogContainer}>
-          <LogIn logIn={logIn} />
+          <SignIn logIn={logIn} />
         </div>
       </div>} />
       <Route exact path="/dashboard" render={() => <Dashboard isAuth={state.isAuth} logOut={logOut} folders={state.folders} deleteFolder={deleteFolder} addFolder={addFolder} />} />
       <Route exact path="/dashboard/:folderName" render={() => <Folder isAuth={state.isAuth} folders={state.folders} addFiles={addFiles} logOut={logOut} />} />
+
+      {/* зробити заглушку <Route path="*">
+        <NoMatch />
+      </Route> */}
     </>
   );
 });

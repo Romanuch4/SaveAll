@@ -12,7 +12,7 @@ export const Folder = React.memo(({ isAuth, folders, addFiles, logOut }) => {
   const dispatch = useDispatch();
   const { folderName } = useParams();
   if (!isAuth) {
-    return <Redirect to="/login" />
+    return <Redirect to="/" />
   }
   //Отримуємо необхідну папку: порівнюємо URL та ім'я теки і повертаємо збіг, який має бути лише один.
   const folder = folders.find((item) => item.name.replace(/\s/g, '') === folderName);

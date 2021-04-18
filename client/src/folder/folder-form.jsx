@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import classNames from "./folder.module.css";
 
-export const FolderForm = React.memo(({ dispatch, folderName, addFiles, }) => {
+export const FolderForm = React.memo(({ dispatch, folderName, addFiles }) => {
   return (
     <div className={classNames.folderForm}>
       <h2 className="title">

@@ -6,7 +6,7 @@ import classNames from './dashboard.module.css';
 
 export const Dashboard = React.memo(({ isAuth, logOut, folders, deleteFolder, addFolder }) => {
   if (!isAuth) {
-    return <Redirect to="/login" />
+    return <Redirect to="/" />
   }
   return (
     <div className={classNames.dashboard}>
