@@ -13,7 +13,6 @@ import { Plug } from './plug/plug';
 const App = React.memo(() => {
   const history = useHistory();
   const location = history.location.pathname;
-  console.log(location !== "/" && location.indexOf("dashboard") === -1);
   const state = useSelector((state) => {
     return {
       isLoading: state.common.isLoading,

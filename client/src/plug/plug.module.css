@@ -1,3 +1,19 @@
-.h1 {
-  color: red;
+.plugContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plugTitle {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #252423;
+  line-height: 1.875;
+}
+
+.plugContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
