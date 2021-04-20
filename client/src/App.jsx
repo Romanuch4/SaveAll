@@ -3,13 +3,17 @@ import classNames from './App.module.css';
 import { SignIn } from './form/sign';
 import { Preloader } from './preloader/preloader';
 import { useSelector } from 'react-redux';
-import { Route } from 'react-router';
+import { Route, useHistory } from 'react-router';
 import { Dashboard } from './dashboard/dashboard';
 import { logIn, logOut } from './store/actions/common-ac';
 import { deleteFolder, addFolder, addFiles } from './store/actions/dashboard-ac';
 import { Folder } from './folder/folder';
+import { Plug } from './plug/plug';
 
 const App = React.memo(() => {
+  const history = useHistory();
+  const location = history.location.pathname;
+  console.log(location !== "/" && location.indexOf("dashboard") === -1);
   const state = useSelector((state) => {
     return {
       isLoading: state.common.isLoading,
@@ -28,10 +32,7 @@ const App = React.memo(() => {
       </div>} />
       <Route exact path="/dashboard" render={() => <Dashboard isAuth={state.isAuth} logOut={logOut} folders={state.folders} deleteFolder={deleteFolder} addFolder={addFolder} />} />
       <Route exact path="/dashboard/:folderName" render={() => <Folder isAuth={state.isAuth} folders={state.folders} addFiles={addFiles} logOut={logOut} />} />
-
-      {/* зробити заглушку <Route path="*">
-        <NoMatch />
-      </Route> */}
+      <Route exact path={(location !== "/" && location.indexOf("dashboard") === -1) ? location : "/plug"} render={() => <Plug />} />
     </>
   );
 });

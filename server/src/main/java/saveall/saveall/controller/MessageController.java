@@ -21,7 +21,7 @@ public class MessageController {
     }
 
     @GetMapping
-    @JsonView(Views.IdName.class)
+    //@JsonView(Views.IdName.class) - конструкція для обмеження кількості полів, що прилетять на клієнт.
     public List<Message> list() {
         return messageRepo.findAll();
     }
