@@ -29,7 +29,7 @@ export const Header = React.memo(({ logOut }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const dologOut = () => {
-    history.push('/login');
+    history.push('/');
     dispatch(logOut());
   }
 

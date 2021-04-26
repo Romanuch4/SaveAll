@@ -1,6 +1,6 @@
 package saveall.saveall.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.*;
 import saveall.saveall.domain.User;
 import saveall.saveall.repo.MessageRepo;
 
@@ -9,13 +9,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 @Controller
-@RequestMapping("/")
+/*@ResponseBody*/
+@RequestMapping(method = RequestMethod.GET, value = "/")
 public class MainController {
     private final MessageRepo messageRepo;
 
@@ -34,6 +33,6 @@ public class MainController {
         /*model.addAttribute("frontendData", data);
         model.addAttribute("isDevMode", "dev".equals(profile));*/
 
-        return "index";
+        return "index.html";
     }
 }

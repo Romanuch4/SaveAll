@@ -1,13 +1,52 @@
 import React from "react";
-import { Formik } from 'formik';
 import classNames from './dashboard.module.css';
+import fileIcon from '../assets/file.svg';
+import { Link } from "react-router-dom";
 
-export const DashboardContentCreate = React.memo(({ addFolder, dispatch }) => {
-  // false - no edit mode, true - edit mode
-  const [status, setStatus] = React.useState(false);
-  const setEditStatus = () => {
-    setStatus(!status);
+export const DashboardContentCreate = React.memo(({ files, addFile, dispatch }) => {
+  const makeOnInputFocus = () => {
+    console.log(true);
   }
+
+  const triggerInput = (evt) => {
+    //input type=[file] = evt.target.nextElementSibling
+    evt.target.nextElementSibling.click();
+  }
+
+  const downloadFileToServer = (evt) => {
+    if (!evt.target.files.length) {
+      return;
+    }
+    const files = Array.from(evt.target.files);
+    files.forEach((file) => {
+      /* if (!file.type.match('image')) {
+        return;
+      } */
+
+      const reader = new FileReader();
+
+      reader.onload = (ev) => {
+        const src = ev.target.result;
+        const fileName = file.name;
+        dispatch(addFile({ src, fileName }));
+      }
+      reader.readAsDataURL(file);
+    })
+  }
+
+  const items = files.map((file) => {
+    return (
+      <div key={file.fileName + Math.random() * 10} className={classNames.file}>
+        <img className={classNames.fileIcon} src={fileIcon} alt="file" />
+        <h3 className={classNames.fileTitle}>
+          {file.fileName}
+        </h3>
+        <div className={classNames.fileDownloadWrap}>
+          <a className="btn" href={file.fileURL} download={file.fileName}>Завантажити</a>
+        </div>
+      </div>
+    )
+  });
   return (
     <>
       <div className="container">
@@ -15,63 +54,22 @@ export const DashboardContentCreate = React.memo(({ addFolder, dispatch }) => {
           Створення
         </h2>
         <div className={classNames.DashboardCreate}>
-          <div className={classNames.DashboardCreateItem} onClick={setEditStatus} tabIndex="0">
+          <Link className={classNames.DashboardCreateItem} to="/dashboard/create_file" onClick={makeOnInputFocus}>
             <div className={classNames.DashboardCreateItemIcon}></div>
             <h3 className={classNames.DashboardCreateItemTitle}>
-              Нова тека
+              Створити файл
             </h3>
-          </div>
+          </Link>
+          {items}
         </div>
-      </div>
-      <div className={`${classNames.DashboardCreatePopup} ${status ? classNames.DashboardCreatePopupActive : ''}`}>
-        <div className={classNames.DashboardPopupBody}>
-          <button className={classNames.DashboardPopupClose} onClick={setEditStatus}></button>
-          <h3>
-            Введіть назву теки
-          </h3>
-          <Formik
-            initialValues={{ folderName: '' }}
-            validate={values => {
-              const errors = {};
-              if (!values.folderName) {
-                errors.folderName = `Обов'язково`;
-              } else if (values.folderName.length > 50) {
-                errors.folderName = 'не більше 50-ти символів';
-              }
-              return errors;
-            }}
-            onSubmit={(values, { setSubmitting }) => {
-              dispatch(addFolder(JSON.parse(JSON.stringify(values, null, 2)).folderName));
-              setEditStatus();
-              values.folderName = '';
-              setSubmitting(false);
-            }}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => (
-              <form className={classNames.DashboardPopupForm} onSubmit={handleSubmit}>
-                <input
-                  className={classNames.DashboardPopupInput}
-                  type="text"
-                  name="folderName"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.folderName}
-                />
-                {errors.folderName && touched.folderName && errors.folderName}
-                <button className="btn" type="submit" disabled={isSubmitting}>
-                  Створити
-                </button>
-              </form>
-            )}
-          </Formik>
+        <div className={classNames.folderHeader}>
+          <h2 className="title">
+            Завантаження
+          </h2>
+          <label className={classNames.upload}>
+            <button className={`${classNames.uploadBtn} btn`} onClick={triggerInput}>Завантажити файл</button>
+            <input type="file" className={classNames.uploadInput} onChange={downloadFileToServer} multiple />
+          </label>
         </div>
       </div>
     </>

@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 import { Route, useHistory } from 'react-router';
 import { Dashboard } from './dashboard/dashboard';
 import { logIn, logOut } from './store/actions/common-ac';
-import { deleteFolder, addFolder, addFiles } from './store/actions/dashboard-ac';
-import { Folder } from './folder/folder';
+import { addFile, deleteFile } from './store/actions/dashboard-ac';
 import { Plug } from './plug/plug';
+import { FileForm } from './dashboard/file-form';
 
 const App = React.memo(() => {
   const history = useHistory();
@@ -17,7 +17,7 @@ const App = React.memo(() => {
     return {
       isLoading: state.common.isLoading,
       isAuth: state.common.isAuth,
-      folders: state.dashboard.folders,
+      files: state.dashboard.files,
     };
   });
 
@@ -29,8 +29,8 @@ const App = React.memo(() => {
           <SignIn logIn={logIn} />
         </div>
       </div>} />
-      <Route exact path="/dashboard" render={() => <Dashboard isAuth={state.isAuth} logOut={logOut} folders={state.folders} deleteFolder={deleteFolder} addFolder={addFolder} />} />
-      <Route exact path="/dashboard/:folderName" render={() => <Folder isAuth={state.isAuth} folders={state.folders} addFiles={addFiles} logOut={logOut} />} />
+      <Route exact path="/dashboard" render={() => <Dashboard isAuth={state.isAuth} logOut={logOut} files={state.files} deleteFile={deleteFile} addFile={addFile} />} />
+      <Route exact path="/dashboard/create_file" render={() => <FileForm isAuth={state.isAuth} logOut={logOut} addFile={addFile} />} />
       <Route exact path={(location !== "/" && location.indexOf("dashboard") === -1) ? location : "/plug"} render={() => <Plug />} />
     </>
   );

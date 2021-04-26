@@ -9,7 +9,7 @@ export const Form = React.memo(({ confirmLogin }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const logIn = async () => {
-    const localData = await data.getData();
+    const localData = await data.login();
     dispatch(confirmLogin());
     history.push('/dashboard');
     console.log(localData.data);

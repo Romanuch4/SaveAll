@@ -1,26 +1,18 @@
 import { actionTypes } from '../reducers/dashboard';
 
-export const deleteFolder = (id) => {
+export const deleteFile = (id) => {
   return {
-    type: actionTypes.DELETE_FOLDER,
+    type: actionTypes.DELETE_FILE,
     payload: id,
   };
 };
 
-export const addFolder = (name) => {
-  return {
-    type: actionTypes.ADD_FOLDER,
-    payload: name,
-  };
-};
-
-export const addFiles = ({ src, fileName, folderName }) => {
+export const addFile = ({ src, fileName }) => {
   return {
     type: actionTypes.ADD_FILE,
     payload: {
       fileURL: src,
       fileName,
-      folderName,
     },
   };
 };
