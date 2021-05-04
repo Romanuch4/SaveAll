@@ -6,5 +6,5 @@ import ReduxThunk from 'redux-thunk';
 const rootReducer = combineReducers({ common, dashboard });
 
 const Store = createStore(rootReducer, applyMiddleware(ReduxThunk));
-//window.Store = Store;
+window.Store = Store;
 export default Store;

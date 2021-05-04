@@ -142,6 +142,45 @@
   visibility: visible;
 }
 
+.fileDelete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  opacity: 0.7;
+  transition: 0.4s opacity;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.fileDelete:hover {
+  opacity: 1;
+}
+
+.fileDelete::before,
+.fileDelete::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+}
+
+.fileDelete::before {
+  width: 3px;
+  height: 15px;
+}
+
+.fileDelete::after {
+  height: 3px;
+  width: 15px;
+}
+
 .filesPlug {
   margin-left: 10px;
 }

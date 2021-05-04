@@ -2,17 +2,14 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 import classNames from './form.module.css';
 import { useDispatch } from 'react-redux';
-import { data } from '../api/api';
+import { setInitialDataThunk } from '../store/actions/dashboard-ac';
 
 
-export const Form = React.memo(({ confirmLogin }) => {
+export const Form = React.memo(() => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const logIn = async () => {
-    const localData = await data.login();
-    dispatch(confirmLogin());
-    history.push('/dashboard');
-    console.log(localData.data);
+  const logIn = () => {
+    dispatch(setInitialDataThunk(history));
   }
   return (
     <button className={`form-btn ${classNames.formBtn}`} onClick={logIn}>

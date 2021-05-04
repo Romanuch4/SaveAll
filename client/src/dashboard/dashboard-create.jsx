@@ -2,11 +2,9 @@ import React from "react";
 import classNames from './dashboard.module.css';
 import fileIcon from '../assets/file.svg';
 import { Link } from "react-router-dom";
+import { deleteFileThunk } from "../store/actions/dashboard-ac";
 
 export const DashboardContentCreate = React.memo(({ files, addFile, dispatch }) => {
-  const makeOnInputFocus = () => {
-    console.log(true);
-  }
 
   const triggerInput = (evt) => {
     //input type=[file] = evt.target.nextElementSibling
@@ -34,7 +32,11 @@ export const DashboardContentCreate = React.memo(({ files, addFile, dispatch }) 
     })
   }
 
-  const items = files.map((file) => {
+  const deleteFile = (id) => {
+    dispatch(deleteFileThunk(id));
+  }
+
+  const items = !!files && files.map((file) => {
     return (
       <div key={file.fileName + Math.random() * 10} className={classNames.file}>
         <img className={classNames.fileIcon} src={fileIcon} alt="file" />
@@ -42,6 +44,7 @@ export const DashboardContentCreate = React.memo(({ files, addFile, dispatch }) 
           {file.fileName}
         </h3>
         <div className={classNames.fileDownloadWrap}>
+          <button className={classNames.fileDelete} onClick={() => deleteFile(file.id)}></button>
           <a className="btn" href={file.fileURL} download={file.fileName}>Завантажити</a>
         </div>
       </div>
@@ -54,7 +57,7 @@ export const DashboardContentCreate = React.memo(({ files, addFile, dispatch }) 
           Створення
         </h2>
         <div className={classNames.DashboardCreate}>
-          <Link className={classNames.DashboardCreateItem} to="/dashboard/create_file" onClick={makeOnInputFocus}>
+          <Link className={classNames.DashboardCreateItem} to="/dashboard/create_file">
             <div className={classNames.DashboardCreateItemIcon}></div>
             <h3 className={classNames.DashboardCreateItemTitle}>
               Створити файл

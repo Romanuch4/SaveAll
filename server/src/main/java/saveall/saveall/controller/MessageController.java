@@ -37,7 +37,7 @@ public class MessageController {
         return messageRepo.save(message);
     }
 
-    @PutMapping("message/{id}")
+    @PutMapping("{id}")
     public Message update(
             @PathVariable("id") Message messageFormDb ,//цей аргумент ми отримаємо через id
             @RequestBody Message message //це ми отримаємо в JSON, Spring сам розпакує і запакує в об'єкт message
@@ -46,7 +46,7 @@ public class MessageController {
         return messageRepo.save(messageFormDb);
     }
 
-    @DeleteMapping("message/{id}")
+    @DeleteMapping("{id}")
     public void delete(@PathVariable("id") Message message) {
         messageRepo.delete(message);
     }

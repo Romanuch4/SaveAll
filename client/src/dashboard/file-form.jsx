@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Header } from '../header/header';
 import classNames from './dashboard.module.css';
+import { addFileThunk } from '../store/actions/dashboard-ac';
 
-export const FileForm = React.memo(({ isAuth, addFile, logOut }) => {
+export const FileForm = React.memo(({ isAuth, logOut }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   if (!isAuth) {
@@ -35,7 +36,7 @@ export const FileForm = React.memo(({ isAuth, addFile, logOut }) => {
               const fileData = JSON.parse(JSON.stringify(values, null, 2));
               const fileName = `${fileData.title}.txt`;
               const src = `data:text/plain;content-disposition=attachment;filename=file,${fileData.content}`;
-              dispatch(addFile({ src, fileName }));
+              dispatch(addFileThunk({ src, fileName }));
               values.title = "";
               values.content = "";
               history.push("/dashboard");
@@ -55,7 +56,7 @@ export const FileForm = React.memo(({ isAuth, addFile, logOut }) => {
                   </label>
                   <button className="form-btn" type="submit" disabled={isSubmitting}>
                     Створити
-              </button>
+                  </button>
                 </div>
               </Form>
             )}

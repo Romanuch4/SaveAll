@@ -11,3 +11,15 @@ export const logOut = () => {
     type: actionTypes.SET_AUTH_FALSE,
   };
 };
+
+export const startLoading = () => {
+  return {
+    type: actionTypes.SET_LOAD_TRUE,
+  };
+};
+
+export const finishLoading = () => {
+  return {
+    type: actionTypes.SET_LOAD_FALSE,
+  };
+};

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table
-@ToString(of = {"id", "text"})
+@ToString(of = {"id", "fileURL", "fileName"})
 @EqualsAndHashCode(of = {"id"})
 public class Message {
     @Id
@@ -18,8 +18,11 @@ public class Message {
     @JsonView(Views.IdName.class)
     private Long id;
     @JsonView(Views.IdName.class)
-    private String text;
+    private String fileURL;
+    @JsonView(Views.IdName.class)
+    private String fileName;
     private LocalDateTime creationDate;
+
     @Column(updatable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     @JsonView(Views.FullMessage.class)
@@ -39,11 +42,20 @@ public class Message {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getFileURL() {
+        return fileURL;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setFileURL(String fileURL) {
+        this.fileURL = fileURL;
     }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
 }
