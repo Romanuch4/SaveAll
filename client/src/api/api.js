@@ -11,9 +11,7 @@ const instanceRequest = axios.create({
 export const data = {
   login() {
     return instanceRequest.get('/message').then((res) => {
-      if (res.request.status === 200 && res.request.statusText === 'OK') {
-        return res.data;
-      }
+      return res;
     });
   },
 

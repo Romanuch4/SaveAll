@@ -1,10 +1,8 @@
 package saveall.saveall.controller;
-import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import saveall.saveall.domain.Message;
-import saveall.saveall.domain.Views;
 import saveall.saveall.repo.MessageRepo;
 
 import java.time.LocalDateTime;

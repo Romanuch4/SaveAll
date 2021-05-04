@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(of = {"id"})
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    /*@GeneratedValue(strategy = GenerationType.AUTO)*/
     @JsonView(Views.IdName.class)
     private Long id;
     @JsonView(Views.IdName.class)

@@ -25,32 +25,43 @@ export const setInintialData = (files) => {
 
 export const setInitialDataThunk = (history) => async (dispatch) => {
   dispatch(startLoading());
-  const files = await data.login();
-  dispatch(logIn());
-  dispatch(setInintialData(files));
-  history.push('/dashboard');
+  try {
+    const files = await data.login();
+    dispatch(logIn());
+    dispatch(setInintialData(files.data));
+    history && history.push('/dashboard');
+  } catch (error) {
+    console.log(error);
+  }
   dispatch(finishLoading());
 };
 
 export const addFileThunk = ({ src, fileName }) => async (dispatch) => {
-  const fileData = {
-    id:
-      Math.floor(Math.random() * 100000000000) +
-      new Date().getMilliseconds() * Math.floor(Math.random()) * 100000000000,
-    fileURL: src,
-    fileName,
-  };
+  console.log(src);
   dispatch(startLoading());
-  const res = await data.addFile(JSON.stringify(fileData));
-  console.log(res);
-  dispatch(addFile(fileData));
+  try {
+    const fileData = {
+      id:
+        Math.floor(Math.random() * 100000000000) +
+        new Date().getMilliseconds() * Math.floor(Math.random()) * 100000000000,
+      fileURL: src,
+      fileName,
+    };
+    await data.addFile(JSON.stringify(fileData));
+    dispatch(addFile(fileData));
+  } catch (error) {
+    console.log(error);
+  }
   dispatch(finishLoading());
 };
 
 export const deleteFileThunk = (id) => async (dispatch) => {
   dispatch(startLoading());
-  const res = await data.deleteFile(id);
-  console.log(res);
-  dispatch(deleteFile(id));
+  try {
+    await data.deleteFile(id);
+    dispatch(deleteFile(id));
+  } catch (error) {
+    console.log(error);
+  }
   dispatch(finishLoading());
 };

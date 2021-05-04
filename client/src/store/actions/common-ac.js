@@ -27,8 +27,11 @@ export const finishLoading = () => {
 
 export const logOutThunk = () => async (dispatch) => {
   dispatch(startLoading());
-  const res = await data.logOut();
-  console.log(res);
-  dispatch(logOut());
+  try {
+    await data.logOut();
+    dispatch(logOut());
+  } catch (error) {
+    console.log(error);
+  }
   dispatch(finishLoading());
 };
