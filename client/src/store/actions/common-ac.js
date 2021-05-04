@@ -1,4 +1,5 @@
 import { actionTypes } from '../reducers/common';
+import { data } from '../../api/api';
 
 export const logIn = () => {
   return {
@@ -22,4 +23,12 @@ export const finishLoading = () => {
   return {
     type: actionTypes.SET_LOAD_FALSE,
   };
+};
+
+export const logOutThunk = () => async (dispatch) => {
+  dispatch(startLoading());
+  const res = await data.logOut();
+  console.log(res);
+  dispatch(logOut());
+  dispatch(finishLoading());
 };

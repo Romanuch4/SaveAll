@@ -17,6 +17,12 @@ export const data = {
     });
   },
 
+  logOut() {
+    return instanceRequest.get('/logout').then((res) => {
+      return res;
+    });
+  },
+
   addFile(fileData) {
     return instanceRequest.post('/message', fileData).then((res) => {
       return res;

@@ -5,7 +5,7 @@ import { Preloader } from './preloader/preloader';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, useHistory } from 'react-router';
 import { Dashboard } from './dashboard/dashboard';
-import { finishLoading, logOut } from './store/actions/common-ac';
+import { finishLoading, logOutThunk } from './store/actions/common-ac';
 import { addFileThunk, deleteFile } from './store/actions/dashboard-ac';
 import { Plug } from './plug/plug';
 import { FileForm } from './dashboard/file-form';
@@ -42,8 +42,8 @@ const App = React.memo(() => {
           <SignIn />
         </div>
       </div>} />
-      <Route exact path="/dashboard" render={() => <Dashboard addFile={addFileThunk} isAuth={state.isAuth} logOut={logOut} files={state.files} deleteFile={deleteFile} />} />
-      <Route exact path="/dashboard/create_file" render={() => <FileForm isAuth={state.isAuth} logOut={logOut} />} />
+      <Route exact path="/dashboard" render={() => <Dashboard addFile={addFileThunk} isAuth={state.isAuth} logOut={logOutThunk} files={state.files} deleteFile={deleteFile} />} />
+      <Route exact path="/dashboard/create_file" render={() => <FileForm isAuth={state.isAuth} logOut={logOutThunk} />} />
       <Route exact path={(location !== "/" && location.indexOf("dashboard") === -1) ? location : "/plug"} render={() => <Plug />} />
     </>
   );
