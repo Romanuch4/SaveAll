@@ -32,7 +32,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE')
 	compile('org.springframework.session:spring-session-jdbc')
+	implementation 'io.sentry:sentry-spring-boot-starter:4.3.0'
 }
+
 
 test {
 	useJUnitPlatform()
