@@ -1,6 +1,7 @@
 import * as axios from 'axios';
 
 const instanceRequest = axios.create({
+  baseURL: 'http://saveall.herokuapp.com/',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -10,25 +11,25 @@ const instanceRequest = axios.create({
 
 export const data = {
   login() {
-    return instanceRequest.get('/message').then((res) => {
+    return instanceRequest.get('message').then((res) => {
       return res;
     });
   },
 
   logOut() {
-    return instanceRequest.get('/logout').then((res) => {
+    return instanceRequest.get('logout').then((res) => {
       return res;
     });
   },
 
   addFile(fileData) {
-    return instanceRequest.post('/message', fileData).then((res) => {
+    return instanceRequest.post('message', fileData).then((res) => {
       return res;
     });
   },
 
   deleteFile(id) {
-    return instanceRequest.delete(`/message/${id}`, { id }).then((res) => {
+    return instanceRequest.delete(`message/${id}`, { id }).then((res) => {
       return res;
     });
   },

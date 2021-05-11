@@ -37,7 +37,6 @@ export const setInitialDataThunk = (history) => async (dispatch) => {
 };
 
 export const addFileThunk = ({ src, fileName }) => async (dispatch) => {
-  console.log(src);
   dispatch(startLoading());
   try {
     const fileData = {

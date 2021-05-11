@@ -36,7 +36,7 @@ export const DashboardContentCreate = React.memo(({ files, addFile, dispatch }) 
     dispatch(deleteFileThunk(id));
   }
 
-  const items = !!files && files.map((file) => {
+  const items = Array.isArray(files) && files.map((file) => {
     return (
       <div key={file.fileName + Math.random() * 10} className={classNames.file}>
         <img className={classNames.fileIcon} src={fileIcon} alt="file" />

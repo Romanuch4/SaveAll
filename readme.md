@@ -12,6 +12,7 @@ Frontend:
 Backend:
 
 1. https://start.spring.io/ (для старту, одразу імпортуємо Web & DevTools);
+2. https://sentry.io/welcome/(для відслідковування помилок на клієнті);
 
 Встановимо всі вищевказані бібліотеки.
 Весь Frontend розміщений в папці client. Вхідна точка ./client/src/index.js
