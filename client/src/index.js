@@ -4,7 +4,7 @@ import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
 import { Provider } from 'react-redux';
 import Store from './store/store';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { HashRouter, Switch } from 'react-router-dom';
 import App from './App';
 import './index.css';
 
@@ -19,12 +19,12 @@ Sentry.init({
 });
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <Provider store={Store}>
       <Switch>
         <App />
       </Switch>
     </Provider>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root'),
 );
